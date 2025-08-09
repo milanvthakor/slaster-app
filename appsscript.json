@@ -1,0 +1,44 @@
+{
+  "timeZone": "Asia/Kolkata",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {
+    "enabledAdvancedServices": []
+  },
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "ANYONE_ANONYMOUS"
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/calendar.addons.execute",
+    "https://www.googleapis.com/auth/calendar.readonly",
+    "https://www.googleapis.com/auth/calendar.events",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/script.external_request"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Slaster",
+      "logoUrl": "https://raw.githubusercontent.com/milanvthakor/Images/refs/heads/master/SLASTER.png",
+      "useLocaleFromApp": true,
+      "layoutProperties": {
+        "primaryColor": "#dd2e44",
+        "secondaryColor": "#2eddd1"
+      }
+    },
+    "calendar": {
+      "homepageTrigger": {
+        "runFunction": "onHomepageTrigger"
+      },
+      "eventOpenTrigger": {
+        "runFunction": "onEventOpenTrigger"
+      }
+    }
+  },
+  "urlFetchWhitelist": [
+    "https://slack.com/oauth/v2/authorize",
+    "https://slack.com/api/oauth.v2.access",
+    "https://slack.com/api/users.profile.set",
+    "https://slack.com/api/dnd.setSnooze"
+  ]
+}
